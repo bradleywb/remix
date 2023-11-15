@@ -2,11 +2,9 @@ import type { MetaFunction } from '@remix-run/node'
 import { Form } from '@remix-run/react'
 import Button from '~/components/button'
 
-export { default as action } from '~/pages/home/actions'
-
 export const meta: MetaFunction = () => {
   return [
-    { title: 'New Remix App' },
+    { title: 'Nested Page' },
     { name: 'description', content: 'Welcome to Remix!' },
   ]
 }
@@ -14,12 +12,12 @@ export const meta: MetaFunction = () => {
 export default function Index() {
   return (
     <div style={{ fontFamily: 'system-ui, sans-serif', lineHeight: '1.8' }}>
-      <h1>Welcome to Remix</h1>
+      <h1>Nested Page</h1>
 
-      <Form method="post" navigate={false}>
+      <Form action="actions" method="post" navigate={false}>
         <input name="name" />
 
-        <Button name="method" value="boop" type="submit">
+        <Button formAction="actions/boop" type="submit">
           Boop
         </Button>
 
